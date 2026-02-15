@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dave Anthony | Virtual Assistant</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .font-heading { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'DM Sans', sans-serif; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.7s ease-out forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1);
+    }
+    
+    .stat-item {
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .cta-btn {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 51, 102, 0.3);
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #f8f9fa;"><!-- Header -->
+   <header class="w-full py-6 px-8 md:px-16 animate-fade-in" style="background-color: #f8f9fa;">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center">
+     <div id="logo-text" class="font-heading text-2xl font-bold tracking-tight" style="color: #003366;">
+      Dave Anthony
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#about" class="text-sm font-medium transition-colors hover:opacity-70" style="color: #708090;">About</a> <a href="#services" class="text-sm font-medium transition-colors hover:opacity-70" style="color: #708090;">Services</a> <a href="#stats" class="text-sm font-medium transition-colors hover:opacity-70" style="color: #708090;">Results</a>  <a href="dansenap64@gmail.com" id="nav-cta" class="cta-btn px-6 py-2.5 text-sm font-semibold text-white rounded-full inline-block" style="background-color: #003366;"> Hire Dave </a>
+     </div>
+    </nav>
+   </header><!-- Hero Section -->
+   <section class="w-full px-8 md:px-16 py-16 md:py-24" style="background-color: #f8f9fa;">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center"><!-- Left Side - Headshot -->
+      <div class="order-2 md:order-1 flex justify-center animate-scale-in delay-200" style="opacity: 0;">
+       <div class="relative"><!-- Professional Avatar SVG -->
+        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl" style="background: linear-gradient(135deg, #e8ecf1 0%, #f8f9fa 100%);">
+         <img src="dannii.png" alt="Dave Anthony" class="w-full h-full object-cover">
+        </div><!-- Decorative elements -->
+        <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-20" style="background-color: #003366;"></div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-full opacity-10" style="background-color: #003366;"></div>
+       </div>
+      </div><!-- Right Side - Content -->
+      <div class="order-1 md:order-2 text-center md:text-left">
+       <p class="text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up" style="color: #003366; opacity: 0;">Virtual Assistant</p>
+       <h1 id="hero-headline" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up delay-100" style="color: #1a1a2e; opacity: 0;">Dave Anthony <span class="block text-2xl md:text-3xl lg:text-4xl mt-2" style="color: #003366;">Precision Data Entry &amp; Virtual Assistance</span></h1>
+       <p id="hero-subheadline" class="text-lg md:text-xl leading-relaxed mb-8 max-w-xl animate-fade-in-up delay-200" style="color: #708090; opacity: 0;">Helping businesses scale through 99.9% data accuracy, CRM optimization, and streamlined administrative support.</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up delay-300" style="opacity: 0;"><button id="hero-cta" class="cta-btn px-8 py-4 text-lg font-semibold text-white rounded-full shadow-lg" style="background-color: #003366;"> Hire Dave </button> <a href="#services" class="px-8 py-4 text-lg font-semibold rounded-full border-2 transition-all hover:bg-opacity-10" style="color: #003366; border-color: #003366;"> View My Services </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="w-full px-8 md:px-16 py-20" style="background-color: #ffffff;">
+    <div class="max-w-4xl mx-auto text-center">
+     <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: #003366;">Get to Know Me</p>
+     <h2 id="about-title" class="font-heading text-3xl md:text-4xl font-bold mb-8" style="color: #1a1a2e;">About Dave</h2>
+     <div class="w-20 h-1 mx-auto mb-8 rounded-full" style="background-color: #003366;"></div>
+     <p id="about-text" class="text-lg md:text-xl leading-relaxed" style="color: #708090;">I am Dave Anthony, a detail-oriented Virtual Assistant dedicated to turning messy data into actionable business insights. With years of experience in data management and CRM systems, I help businesses eliminate errors, save time, and focus on what matters most—growth. My commitment to precision and reliability means you can trust your critical business data in capable hands.</p>
+     <div class="mt-12 flex flex-wrap justify-center gap-4"><span class="px-5 py-2 text-sm font-medium rounded-full" style="background-color: rgba(0, 51, 102, 0.1); color: #003366;">Detail-Oriented</span> <span class="px-5 py-2 text-sm font-medium rounded-full" style="background-color: rgba(0, 51, 102, 0.1); color: #003366;">Reliable</span> <span class="px-5 py-2 text-sm font-medium rounded-full" style="background-color: rgba(0, 51, 102, 0.1); color: #003366;">Professional</span> <span class="px-5 py-2 text-sm font-medium rounded-full" style="background-color: rgba(0, 51, 102, 0.1); color: #003366;">Results-Driven</span>
+     </div>
+    </div>
+   </section><!-- Stats Section -->
+   <section id="stats" class="w-full px-8 md:px-16 py-16" style="background-color: #003366;">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <div class="stat-item text-center p-8">
+       <div id="stat-1-value" class="font-heading text-5xl md:text-6xl font-bold text-white mb-2">
+        65+
+       </div>
+       <div id="stat-1-label" class="text-lg font-medium" style="color: rgba(255, 255, 255, 0.8);">
+        WPM Typing Speed
+       </div>
+      </div>
+      <div class="stat-item text-center p-8 border-y md:border-y-0 md:border-x" style="border-color: rgba(255, 255, 255, 0.2);">
+       <div id="stat-2-value" class="font-heading text-5xl md:text-6xl font-bold text-white mb-2">
+        10k+
+       </div>
+       <div id="stat-2-label" class="text-lg font-medium" style="color: rgba(255, 255, 255, 0.8);">
+        Rows Processed
+       </div>
+      </div>
+      <div class="stat-item text-center p-8">
+       <div id="stat-3-value" class="font-heading text-5xl md:text-6xl font-bold text-white mb-2">
+        24hr
+       </div>
+       <div id="stat-3-label" class="text-lg font-medium" style="color: rgba(255, 255, 255, 0.8);">
+        Fast Turnaround
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" class="w-full px-8 md:px-16 py-20" style="background-color: #f8f9fa;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: #003366;">What I Offer</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4" style="color: #1a1a2e;">My Services</h2>
+      <div class="w-20 h-1 mx-auto rounded-full" style="background-color: #003366;"></div>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Service Card 1 -->
+      <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(0, 51, 102, 0.1);">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <line x1="3" y1="9" x2="21" y2="9" /> <line x1="3" y1="15" x2="21" y2="15" /> <line x1="9" y1="3" x2="9" y2="21" /> <line x1="15" y1="3" x2="15" y2="21" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-bold mb-3" style="color: #1a1a2e;">Advanced Excel &amp; Google Sheets</h3>
+       <p class="leading-relaxed" style="color: #708090;">Complex formulas, pivot tables, data validation, and automated reporting. Transform raw data into clear, actionable insights.</p>
+       <ul class="mt-6 space-y-2">
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> VLOOKUP &amp; XLOOKUP</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Pivot Tables &amp; Charts</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Data Cleaning &amp; Validation</li>
+       </ul>
+      </div><!-- Service Card 2 -->
+      <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(0, 51, 102, 0.1);">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M23 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-bold mb-3" style="color: #1a1a2e;">CRM Management</h3>
+       <p class="leading-relaxed" style="color: #708090;">Expert management of Salesforce, HubSpot, and other CRM platforms. Keep your customer data organized and optimized.</p>
+       <ul class="mt-6 space-y-2">
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Salesforce Administration</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> HubSpot Setup &amp; Maintenance</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Data Migration &amp; Cleanup</li>
+       </ul>
+      </div><!-- Service Card 3 -->
+      <div class="service-card bg-white rounded-2xl p-8 shadow-lg">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background-color: rgba(0, 51, 102, 0.1);">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /> <line x1="21" y1="21" x2="16.65" y2="16.65" /> <line x1="11" y1="8" x2="11" y2="14" /> <line x1="8" y1="11" x2="14" y2="11" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-bold mb-3" style="color: #1a1a2e;">Web Research</h3>
+       <p class="leading-relaxed" style="color: #708090;">Thorough, accurate research delivered in organized formats. From lead generation to market analysis.</p>
+       <ul class="mt-6 space-y-2">
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Lead Generation</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Competitor Analysis</li>
+        <li class="flex items-center text-sm" style="color: #708090;">
+         <svg class="w-4 h-4 mr-2" fill="#003366" viewbox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg> Contact List Building</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section class="w-full px-8 md:px-16 py-20" style="background-color: #ffffff;">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6" style="color: #1a1a2e;">Ready to Streamline Your Business?</h2>
+     <p class="text-lg mb-8 max-w-2xl mx-auto" style="color: #708090;">Let's discuss how I can help you save time, reduce errors, and focus on growing your business.</p><button id="footer-cta" class="cta-btn px-10 py-4 text-lg font-semibold text-white rounded-full shadow-lg" style="background-color: #003366;"> Get in Touch </button>
+    </div>
+   </section><!-- Footer -->
+   <footer class="w-full px-8 md:px-16 py-8" style="background-color: #1a1a2e;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+     <div class="font-heading text-xl font-bold text-white">
+      Dave Anthony
+     </div>
+     <p class="text-sm" style="color: rgba(255, 255, 255, 0.6);">© 2024 Dave Anthony. Virtual Assistant Services.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_name: 'Dave Anthony',
+      hero_headline: 'Precision Data Entry & Virtual Assistance',
+      hero_subheadline: 'Helping businesses scale through 99.9% data accuracy, CRM optimization, and streamlined administrative support.',
+      cta_text: 'Hire Dave',
+      about_title: 'About Dave',
+      about_text: 'I am Dave Anthony, a detail-oriented Virtual Assistant dedicated to turning messy data into actionable business insights. With years of experience in data management and CRM systems, I help businesses eliminate errors, save time, and focus on what matters most—growth. My commitment to precision and reliability means you can trust your critical business data in capable hands.',
+      stat_1_value: '65+',
+      stat_1_label: 'WPM Typing Speed',
+      stat_2_value: '10k+',
+      stat_2_label: 'Rows Processed',
+      stat_3_value: '24hr',
+      stat_3_label: 'Fast Turnaround',
+      background_color: '#f8f9fa',
+      primary_color: '#003366',
+      text_color: '#1a1a2e',
+      subtext_color: '#708090',
+      surface_color: '#ffffff',
+      font_family: 'DM Sans',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const c = { ...defaultConfig, ...config };
+      
+      // Update hero section
+      const heroHeadline = document.getElementById('hero-headline');
+      if (heroHeadline) {
+        heroHeadline.innerHTML = `${c.hero_name}<span class="block text-2xl md:text-3xl lg:text-4xl mt-2" style="color: ${c.primary_color};">${c.hero_headline}</span>`;
+      }
+      
+      const heroSubheadline = document.getElementById('hero-subheadline');
+      if (heroSubheadline) {
+        heroSubheadline.textContent = c.hero_subheadline;
+        heroSubheadline.style.color = c.subtext_color;
+      }
+      
+      // Update CTA buttons
+      const heroCta = document.getElementById('hero-cta');
+      const navCta = document.getElementById('nav-cta');
+      const footerCta = document.getElementById('footer-cta');
+      
+      [heroCta, navCta].forEach(btn => {
+        if (btn) {
+          btn.textContent = c.cta_text;
+          btn.style.backgroundColor = c.primary_color;
+        }
+      });
+      
+      if (footerCta) {
+        footerCta.style.backgroundColor = c.primary_color;
+      }
+      
+      // Update about section
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) {
+        aboutTitle.textContent = c.about_title;
+        aboutTitle.style.color = c.text_color;
+      }
+      
+      const aboutText = document.getElementById('about-text');
+      if (aboutText) {
+        aboutText.textContent = c.about_text;
+        aboutText.style.color = c.subtext_color;
+      }
+      
+      // Update stats
+      const stat1Value = document.getElementById('stat-1-value');
+      const stat1Label = document.getElementById('stat-1-label');
+      const stat2Value = document.getElementById('stat-2-value');
+      const stat2Label = document.getElementById('stat-2-label');
+      const stat3Value = document.getElementById('stat-3-value');
+      const stat3Label = document.getElementById('stat-3-label');
+      
+      if (stat1Value) stat1Value.textContent = c.stat_1_value;
+      if (stat1Label) stat1Label.textContent = c.stat_1_label;
+      if (stat2Value) stat2Value.textContent = c.stat_2_value;
+      if (stat2Label) stat2Label.textContent = c.stat_2_label;
+      if (stat3Value) stat3Value.textContent = c.stat_3_value;
+      if (stat3Label) stat3Label.textContent = c.stat_3_label;
+      
+      // Update logo
+      const logoText = document.getElementById('logo-text');
+      if (logoText) {
+        logoText.textContent = c.hero_name;
+        logoText.style.color = c.primary_color;
+      }
+      
+      // Apply font family
+      const fontStack = `${c.font_family}, sans-serif`;
+      document.body.style.fontFamily = fontStack;
+      
+      // Apply font size scaling
+      const baseSize = c.font_size;
+      document.documentElement.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(config) {
+      const c = { ...defaultConfig, ...config };
+      
+      return {
+        recolorables: [
+          {
+            get: () => c.background_color,
+            set: (value) => {
+              c.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => c.surface_color,
+            set: (value) => {
+              c.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => c.text_color,
+            set: (value) => {
+              c.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => c.primary_color,
+            set: (value) => {
+              c.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => c.subtext_color,
+            set: (value) => {
+              c.subtext_color = value;
+              window.elementSdk.setConfig({ subtext_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => c.font_family,
+          set: (value) => {
+            c.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => c.font_size,
+          set: (value) => {
+            c.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      const c = { ...defaultConfig, ...config };
+      return new Map([
+        ['hero_name', c.hero_name],
+        ['hero_headline', c.hero_headline],
+        ['hero_subheadline', c.hero_subheadline],
+        ['cta_text', c.cta_text],
+        ['about_title', c.about_title],
+        ['about_text', c.about_text],
+        ['stat_1_value', c.stat_1_value],
+        ['stat_1_label', c.stat_1_label],
+        ['stat_2_value', c.stat_2_value],
+        ['stat_2_label', c.stat_2_label],
+        ['stat_3_value', c.stat_3_value],
+        ['stat_3_label', c.stat_3_label]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd53e01959004fa',t:'MTc3MDk5NTMxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
